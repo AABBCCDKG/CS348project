@@ -1,0 +1,13 @@
+<h2>{{ action }} Pet</h2>
+<form method="POST">
+    Name: <input type="text" name="name" value="{{ pet.name if pet else '' }}"><br>
+    Type: <input type="text" name="type" value="{{ pet.type if pet else '' }}"><br>
+    Breed: <input type="text" name="breed" value="{{ pet.breed if pet else '' }}"><br>
+    Age: <input type="number" name="age" value="{{ pet.age if pet else '' }}"><br>
+    Status:
+    <select name="status">
+        <option value="available" {% if pet and pet.status == 'available' %}selected{% endif %}>Available</option>
+        <option value="adopted" {% if pet and pet.status == 'adopted' %}selected{% endif %}>Adopted</option>
+    </select><br>
+    <input type="submit" value="{{ action }} Pet">
+</form>
